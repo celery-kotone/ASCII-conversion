@@ -1,0 +1,23 @@
+<html>
+<h2>String conversion via perl</h2>
+<p>
+The following code converts and maps ASCII character strings into a hexadecimal ASCII code value array.
+</p>
+<p>
+The "convert" subroutine is capable for the conversion.<br />
+"convert" executes as the following to perform its task.<br />
+1. The first argument is passed to a variable "$string".<br />
+2. The string is then converted to a decimal value with "unpack".<br />
+3. Unpacked values are mapped to an array with hexadecimal conversion with "sprintf".<br />
+4. The array containing hexadecimal values is returned.
+</p>
+<pre>
+#!/usr/bin/env perl
+
+sub convert {
+  my $string = shift;
+  my @array = map{sprintf "%x", $_}unpack("C*", $string);
+  return @array;
+}
+</pre>
+</html>
